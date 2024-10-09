@@ -13,11 +13,118 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
+
+        <STYLE TYPE="text/css">
+            <!--
+            
+            BODY{
+            overflow-x:hidden;
+            }
+            
+            .s1
+            {
+              position  : absolute;
+              font-size : 10pt;
+              color     : blue;
+              visibility: hidden;
+            }
+            
+            .s2
+            {
+              position  : absolute;
+              font-size : 18pt;
+              color     : red;
+                visibility : hidden;
+            }
+            
+            .s3
+            {
+              position  : absolute;
+              font-size : 14pt;
+              color     : gold;
+                visibility : hidden;
+            }
+            
+            .s4
+            {
+              position  : absolute;
+              font-size : 12pt;
+              color     : lime;
+                visibility : hidden;
+            }
+            
+            </STYLE>
     <title>Warhammer 40k</title>
 </head>
 
 <body>
-    <header>
+    <DIV ID="div1" CLASS="s1">*</DIV>
+<DIV ID="div2" CLASS="s2">*</DIV>
+<DIV ID="div3" CLASS="s3">*</DIV>
+<DIV ID="div4" CLASS="s4">*</DIV>
+
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript">
+
+/*
+Script by Mike McGrath- http://website.lineone.net/~mike_mcgrath
+Featured on JavaScript Kit (http://javascriptkit.com)
+For this and over 400+ free scripts, visit http://javascriptkit.com
+*/
+
+//Updated Feb 20th, 08 by JavaScriptKit.com: Script now compatible in IE7/FF 
+
+var standardbody=(document.compatMode=="CSS1Compat")? document.documentElement : document.body //create reference to common "body" across doctypes
+
+var nav = (!document.all || window.opera);
+var tmr = null;
+var spd = 50;
+var x = 0;
+var x_offset = 5;
+var y = 0;
+var y_offset = 15;
+
+document.onmousemove = get_mouse; 
+
+function get_mouse(e)
+{    
+  x = (nav) ? e.pageX : event.clientX+standardbody.scrollLeft;
+  y = (nav) ? e.pageY : event.clientY+standardbody.scrollTop;
+  x += x_offset;
+  y += y_offset;
+  beam(1);     
+}
+
+function beam(n)
+{
+  if(n<5)
+  {
+				document.getElementById('div'+n).style.top=y+'px'
+				document.getElementById('div'+n).style.left=x+'px'
+				document.getElementById('div'+n).style.visibility='visible'
+    n++;
+    tmr=setTimeout("beam("+n+")",spd);
+  }
+  else
+  {
+     clearTimeout(tmr);
+     fade(4);
+  }   
+} 
+
+function fade(n)
+{
+  if(n>0) 
+  {
+				document.getElementById('div'+n).style.visibility='hidden'
+    n--;
+    tmr=setTimeout("fade("+n+")",spd);
+  }
+  else clearTimeout(tmr);
+} 
+
+// -->
+</SCRIPT>
+    <header id="header">
         <div class="header">
             <div class="left">
                 <h3>Primarchs</h3>
@@ -25,14 +132,14 @@
             <div class="right"><img class="logo" src="Resources/logo.svg" alt="WarhammerLogo"></div>
             <div class="right">
                 <nav>
-                    <a href="">
-                        <p>Loyalists</p>
+                    <a href="#prologue">
+                        <p>Introduction</p>
                     </a>
-                    <a href="">
-                        <p>Traitors</p>
+                    <a href="#primarchsList">
+                        <p>Primarchs</p>
                     </a>
-                    <a href="">
-                        <p>Contact Me</p>
+                    <a href="#worldTable">
+                        <p>Worlds</p>
                     </a>
                 </nav>
             </div>
@@ -42,7 +149,7 @@
         <div class="hero">
             <div class="content">
                 <h1>Glory to the Emperor!</h1>
-                <p>This website aims to explore the driving forces behind the Warhammer 40,000 universe—the Primarchs,
+                <p>This website aims to educate about the driving forces behind the Warhammer 40,000 universe—the Primarchs,
                     the legendary sons of the glorious Emperor of Mankind</p>
                 <div class="linksBtns">
                     <a target="_blank" href="https://warhammer40k.fandom.com/wiki/Warhammer_40k_Wiki">
@@ -55,7 +162,7 @@
             </div>
         </div>
         <div class="mainContent">
-            <div class="prologue">
+            <div class="prologue" id="prologue">
                 <h1 class="secTitle">Introduction</h1>
                 <img alt="Encabezado2015 02" src="Resources/Encabezado.webp">
                 <p>It is the 41st Millennium. For more than a hundred centuries the Emperor of Mankind has sat immobile
@@ -77,7 +184,7 @@
                     and understanding, for in the grim dark future there is only war. There is no peace amongst the
                     stars, only an eternity of carnage and slaughter, and the laughter of thirsting gods.</p>
             </div>
-            <div class="primarchList">
+            <div class="primarchList" id="primarchList">
                 <h1 class="secTitle">Primarchs</h1>
                 <img src="Resources/Encabezado.webp" alt="Encabezado">
                 <p>The Primarchs were the twenty genetically-engineered "sons" of the Emperor of Man. The Emperor used
@@ -139,7 +246,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="Resources/JaghataiKhan.webp" alt="JaghataiKhan">
+                        <img style="object-fit: auto; object-position:center 10%;" src="Resources/JaghataiKhan.webp" alt="JaghataiKhan">
                         <div class="mainCard">
                             <div class="top">
                                 <h2>V - Jaghatai Khan</h2>
@@ -178,77 +285,265 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="Resources/KonradKurze.webp" alt="KonradKurze">
                         <div class="mainCard">
-
                             <div class="top">
-                                <h2></h2>
-                                <p></p>
+                                <h2>VIII - Konrad Curze</h2>
+                                <p>Killed by a Callidus Temple assassin after the Siege of Terra.</p>
                             </div>
                             <div class="bottom">
-                                <p></p>
-                                <p></p>
+                                <p>Night Lords</p>
+                                <p>Traitor</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="Resources/PrimarchSanguinius.webp" alt="PrimarchSanguinius">
                         <div class="mainCard">
-
                             <div class="top">
-                                <h2></h2>
-                                <p></p>
+                                <h2>IX - Sanguinius</h2>
+                                <p>Killed by Horus during the Siege of Terra. </p>
                             </div>
                             <div class="bottom">
-                                <p></p>
-                                <p></p>
+                                <p>Blood Angels</p>
+                                <p>Loyalist</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="Resources/Ferrus.webp" alt="Ferrus">
                         <div class="mainCard">
-
                             <div class="top">
-                                <h2></h2>
-                                <p></p>
+                                <h2>X - Ferrus Manus</h2>
+                                <p>Killed by Fulgrim</p>
                             </div>
                             <div class="bottom">
-                                <p></p>
-                                <p></p>
+                                <p>Iron Hands</p>
+                                <p>Loyalist</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="Resources/Mechanicus.webp" alt="Mechanicus">
                         <div class="mainCard">
                             <div class="top">
-                                <h2></h2>
-                                <p></p>
+                                <h2>XI - Records Lost Or Destroyed</h2>
+                                <p>N/A</p>
                             </div>
                             <div class="bottom">
-                                <p></p>
-                                <p></p>
+                                <p>N/A</p>
+                                <p>N/A</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="" alt="">
+                        <img src="Resources/Angron.webp" alt="Angron">
                         <div class="mainCard">
                             <div class="top">
-                                <h2></h2>
-                                <p></p>
+                                <h2>XII - Angron</h2>
+                                <p>Deamon Prince.</p>
                             </div>
                             <div class="bottom">
-                                <p></p>
-                                <p></p>
+                                <p>World Eaters</p>
+                                <p>Traitor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/RobouteGuilliman.webp" alt="RobouteGuilliman">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XIII - Roboute Guilliman</h2>
+                                <p>Alive. Mortally wounded by Fulgrim after the Heresy. Held in stasis. Now alive and Imperial Regent.</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Ultramarines</p>
+                                <p>Loyalist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/Mortarion.webp" alt="Mortarion">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XIV - Mortarion</h2>
+                                <p>Deamon Prince</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Death Guard</p>
+                                <p>Traitor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/MagnusBbg.webp" alt="babygirl">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XV - Magnus the Red</h2>
+                                <p>Best character. Nearly killed by Leman Russ, now Daemon Prince.</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Thousand Sons</p>
+                                <p>He tried his best.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/Horus.webp" alt="Horus">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XVI - Horus</h2>
+                                <p>Slain bt the Emperor.</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Sons of Horus.</p>
+                                <p>Traitor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/Lorgar.webp" alt="Lorgar">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XVII - Lorgar</h2>
+                                <p>Deamon Prince.</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Word Bearers</p>
+                                <p>Traitor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/PrimarchVulkan.webp" alt="Vulkan">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XVIII - Vulkan</h2>
+                                <p>Dissapeared after the Heresy.</p>
+                            </div>
+                            <div class="bottom">
+                                <p>Salamanders</p>
+                                <p>Loyalist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/CorvusCorax.webp" alt="Corax">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XIX - Corvus Corax</h2>
+                                <p>Disappeared into the Eye of Terror after the Heresy. </p>
+                            </div>
+                            <div class="bottom">
+                                <p>Raven Guard</p>
+                                <p>Loyalist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Resources/Aleph.webp" alt="Aleph">
+                        <div class="mainCard">
+                            <div class="top">
+                                <h2>XX - Alpharius Omegon</h2>
+                                <p>One twin possibly killed by Roboute Guilliman after the Siege of Terra. </p>
+                            </div>
+                            <div class="bottom">
+                                <p>Alpha Legion</p>
+                                <p>Traitor</p>
                             </div>
                         </div>
                     </div>
                 </ul>
             </div>
+            <div class="worldTable" id="worldTable">
+                <h1 class="secTable">Chapter Planets</h1>
+                <img src="Resources/Encabezado.webp" alt="Encabezado">
+                <p>A Space Marine homeworld or a Chapter Planet is the base for a Space Marine fortress-monastery. For some Chapters the world also serves as their sole recruiting world; other chapters draw their recruits from several planets</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Legion Number</th>
+                            <th>Primarch</th>
+                            <th>Legion Name</th>
+                            <th>World of Rediscovery</th>
+                            <th>Date of Rediscovery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XVIth</td>
+                            <td>Horus</td>
+                            <td>Luna Wolves / Sons of Horus</td>
+                            <td>Cthonia</td>
+                            <td>801.M30</td>
+                        </tr>
+                        <tr>
+                            <td>VIth</td>
+                            <td>Leman Russ</td>
+                            <td>Space Wolves</td>
+                            <td>Fenris</td>
+                            <td>819.M30</td>
+                        </tr>
+                        <tr>
+                            <td>RECORDS REDACTED</td>
+                            <td>RECORDS REDACTED</td>
+                            <td>RECORDS REDACTED</td>
+                            <td>RECORDS REDACTED</td>
+                            <td>RECORDS REDACTED</td>
+                        </tr>
+                        <tr>
+                            <td>IXth</td>
+                            <td>Sanguinius</td>
+                            <td>Blood Angels</td>
+                            <td>Baal</td>
+                            <td>843.M30</td>
+                        </tr>
+                        <tr>
+                            <td>1st</td>
+                            <td>Lion El'Jonson</td>
+                            <td>Dark Angels</td>
+                            <td>Caliban</td>
+                            <td>846.M30</td>
+                        </tr>
+                        <tr>
+                            <td>XIVth</td>
+                            <td>Perturabo</td>
+                            <td>Iron Warriors</td>
+                            <td>Olympia</td>
+                            <td>849.M30</td>
+                        </tr>
+                        <tr>
+                            <td>XIIIth</td>
+                            <td>Roboute Guilliman</td>
+                            <td>Ultramarines</td>
+                            <td>Macragge</td>
+                            <td>837.M30</td>
+                        </tr>
+                        <tr>
+                            <td>XXth</td>
+                            <td>Alpharius/Omega</td>
+                            <td>Alpha Legion</td>
+                            <td>Unknown</td>
+                            <td>981.M30</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
         </div>
     </main>
+    <footer>
+        <div class="words">
+            <p>Developed by Ivana St. Valcheva, UNIBIT 259knr Gr I</p>
+        </div>
+        <div class="links">
+            <a href="mailto:259knr@unibit.bg">
+                <p>Contact Me</p>
+            </a>
+            <a href="#header">
+                <p>To Top</p>
+            </a>
+        </div>
+    </footer>
 </body>
-
 </html>
