@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    cursor:alias;
+}
+html, body{
+    width: 100%;
+    font-size: 100%;
+    list-style: 1.5;
+    line-height: 20pt;
+    overflow-x: hidden;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: black;
+}
+body{
+    font-family: "Cinzel", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+p{font-family: "Merriweather", Serif;
+font-weight: 100;}
+
+.header{
+    width: 100vw;
+    height: 50pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  flex-basis: 25%;
+    align-items: center;
+    background-color: #175889;
+}
+
+.header>*{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    width: 100pt;
+    height: auto;
+    align-self: center;
+}
+
+nav{
+    width: 250pt;
+   display: flex;
+    gap: 10pt;
+}
+
+nav>*{
+    cursor: pointer;
+}
+
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+/* hero */
+.hero{
+    width: 100vw;
+    height: 550pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(248, 247, 247, 0.127), rgba(21, 21, 21, 0.73)), url("Resources/Emperor.webp");
+    background-size: 108vw;
+    background-repeat: no-repeat;
+}
+
+.hero .content{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: rgba();
+    padding: 10pt;
+    border-radius: 8pt;
+    background-image: linear-gradient(rgba(35, 50, 62, 0.4), rgba(21, 21, 21, 0.73));
+}
+
+.hero .content h1{
+    font-weight: 1000;
+    text-transform: capitalize;
+    font-size: 35pt;
+}
+
+.hero .content>*{
+    margin: 10pt 40pt;
+}
+
+.hero .content .linksBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40pt;
+}
+
+.hero .content .linksBtns p{
+    border: 2px #354d61 solid;
+    padding: 5pt;
+    border-radius: 4pt;
+    cursor: pointer;
+}
+
+.prologue{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    gap: 20pt;
+    padding: 30pt;
+    background-color: #354d61;
+}
+h1.secTitle{
+    margin: 10pt;
+    text-shadow: 0px -1px 4px rgba(0,0,0,0.51);
+}
+
+.prologue p{
+    width: 90%;
+    columns: 3;
+    column-rule: 1px solid #779cb9 ;
+    column-gap: 20pt;
+}
+
+
+.primarchList{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20pt;
+    background-color:#354d61;
+}
+.primarchList p{
+    width: 90%;
+}
+
+
+ul.primarchs{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20pt;
+    flex-wrap: wrap;
+    color: black;
+}
+.card{
+    border-radius: 8pt;
+    width: 280pt;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card img{
+    border-top-left-radius:8pt;
+    border-top-right-radius: 8pt;
+    width: 100%;
+    max-height: 370pt;
+    object-fit: cover;
+}
+
+.mainCard{
+    width: 100%;
+    padding: 15pt;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bottom{
+    margin-top: auto;
+}
+
